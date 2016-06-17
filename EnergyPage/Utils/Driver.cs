@@ -16,7 +16,6 @@ namespace EnergyPage
 
         public static void Initialize()
         {
-            //Instance = new FirefoxDriver();
             Instance = new ChromeDriver();
             Instance.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(5));
             Instance.Manage().Window.Maximize();

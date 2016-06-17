@@ -51,9 +51,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConstantUtils.cs" />
-    <Compile Include="Driver.cs" />
-    <Compile Include="EnergyComparePage.cs" />
+    <Compile Include="Utils\ConstantUtils.cs" />
+    <Compile Include="Utils\Driver.cs" />
+    <Compile Include="Pages\EnergyComparePage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,5 @@
 ﻿using System;
+using EnergyJourneyTests.Utils;
 using EnergyPage;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
@@ -6,21 +7,8 @@ using TechTalk.SpecFlow;
 namespace EnergyJourneyTests.Steps
 {
     [Binding]
-    public class EnergyComparisonSteps
+    public class EnergyComparisonSteps:BaseTest
     {
-
-        [BeforeScenario]
-        public void Setup()
-        {
-            Driver.Initialize();
-            Driver.Instance.Navigate().GoToUrl(Driver.BaseAddress);
-        }
-
-        [AfterScenario]
-        public void TearDown()
-        {
-            Driver.Close();
-        }
 
         [Given(@"I have navigated to energy comparison page")]
         public void GivenIHaveNavigatedToEnergyComparisonPage()
