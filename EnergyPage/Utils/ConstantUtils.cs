@@ -1,4 +1,4 @@
-﻿namespace EnergyPage
+﻿namespace EnergyPage.Utils
 {
     public class ConstantUtils
     {

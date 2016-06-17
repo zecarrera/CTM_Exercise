@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\YourSupplierPage.cs" />
     <Compile Include="Utils\ConstantUtils.cs" />
     <Compile Include="Utils\Driver.cs" />
     <Compile Include="Pages\EnergyComparePage.cs" />

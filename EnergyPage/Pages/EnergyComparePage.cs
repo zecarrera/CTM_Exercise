@@ -1,4 +1,6 @@
-﻿namespace EnergyPage
+﻿using EnergyPage.Utils;
+
+namespace EnergyPage
 {
     public class EnergyComparePage
     {

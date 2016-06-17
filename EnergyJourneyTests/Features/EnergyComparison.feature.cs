@@ -81,6 +81,48 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("User can provide supplier information")]
+        [NUnit.Framework.CategoryAttribute("acceptance")]
+        public virtual void UserCanProvideSupplierInformation()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User can provide supplier information", new string[] {
+                        "acceptance"});
+#line 12
+this.ScenarioSetup(scenarioInfo);
+#line 13
+ testRunner.Given("I have navigated to energy comparison page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 14
+ testRunner.And("I have entered a post code <postCode>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 15
+ testRunner.And("I have entered the bill handy <billHandy>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 16
+ testRunner.And("I have selected what to compare <compareItem>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 17
+ testRunner.And("I have selected my gas supplier <gasSupplier>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 18
+ testRunner.And("I have selected my electricity supplier <energySupplier>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 19
+ testRunner.When("I click next", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "postCode",
+                        "billHandy",
+                        "compareItem",
+                        "gasSupplier",
+                        "energySupplier"});
+            table1.AddRow(new string[] {
+                        "PE2 6YS",
+                        "False",
+                        "Gas Only",
+                        "British Gas",
+                        "null"});
+#line 20
+ testRunner.Then("Your Energy Form is displayed", ((string)(null)), table1, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

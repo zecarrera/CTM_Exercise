@@ -1,4 +1,5 @@
 ﻿using EnergyPage;
+using EnergyPage.Utils;
 using TechTalk.SpecFlow;
 
 namespace EnergyJourneyTests.Utils
