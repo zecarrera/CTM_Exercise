@@ -1,4 +1,5 @@
 ﻿using EnergyPage;
+using EnergyPage.Pages;
 using EnergyPage.Utils;
 using TechTalk.SpecFlow;
 
@@ -6,17 +7,20 @@ namespace EnergyJourneyTests.Utils
 {
     public class BaseTest : Driver
     {
+        public YourSupplierPage YourSupplierPage;
+
         [BeforeScenario]
         public void Setup()
         {
-            Driver.Initialize();
-            Driver.Instance.Navigate().GoToUrl(Driver.BaseAddress);
+            Initialize();
+            Instance.Navigate().GoToUrl(BaseAddress);
+            YourSupplierPage = new YourSupplierPage();
         }
 
         [AfterScenario]
         public void TearDown()
         {
-            Driver.Close();
+            Close();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using EnergyJourneyTests.Utils;
 using EnergyPage;
+using EnergyPage.Pages;
 using EnergyPage.Utils;
 using NUnit.Framework;
 using TechTalk.SpecFlow;

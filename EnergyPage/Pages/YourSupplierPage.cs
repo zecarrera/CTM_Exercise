@@ -1,45 +1,51 @@
-﻿using OpenQA.Selenium;
+﻿using EnergyPage.Utils;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
-namespace EnergyPage
+namespace EnergyPage.Pages
 {
-    public class YourSupplierPage
+    public class YourSupplierPage:Base
     {
+        public YourSupplierPage()
+        {
+            GetDriver();
+        }
+
         [FindsBy(How = How.Id, Using = "your-postcode")]
-        public static IWebElement PostCodeTxt { get; set; }
+        public IWebElement PostCodeTxt { get; set; }
 
         [FindsBy(How = How.Id, Using = "find-postcode")]
-        public static IWebElement PostCodeFindBtn { get; set; }
+        public IWebElement PostCodeFindBtn { get; set; }
 
         [FindsBy(How = How.Id, Using = "have-bill")]
-        public static IWebElement HaveBillRadio { get; set; }
+        public IWebElement HaveBillRadio { get; set; }
 
         [FindsBy(How = How.Id, Using = "no-bill")]
-        public static IWebElement DoesntHaveBillRadio { get; set; }
+        public IWebElement DoesntHaveBillRadio { get; set; }
 
         [FindsBy(How = How.Id, Using= "compare-gas-label")]
-        public static IWebElement GasOnlyRadio { get; set; }
+        public IWebElement GasOnlyRadio { get; set; }
 
         [FindsBy(How = How.Id, Using = "compare-electricity-label")]
-        public static IWebElement ElectricityOnlyRadio { get; set; }
+        public IWebElement ElectricityOnlyRadio { get; set; }
 
         [FindsBy(How = How.Id, Using = "compare-both-label")]
-        public static IWebElement GasAndElectricityRadio { get; set; }
+        public IWebElement GasAndElectricityRadio { get; set; }
 
         [FindsBy(How = How.Id, Using = "goto-your-supplier-details")]
-        public static IWebElement nextBtn { get; set; }
+        public IWebElement NextBtn { get; set; }
 
-        public static void EnterPostCode(string postCode)
+        public void EnterPostCode(string postCode)
         {
             PostCodeTxt.SendKeys(postCode);
         }
 
-        public static void ClickFindPostCode()
+        public  void ClickFindPostCode()
         {
             PostCodeFindBtn.Click();
         }
 
-        public static void SelectBillHandy(bool isBillHandy)
+        public  void SelectBillHandy(bool isBillHandy)
         {
             if (isBillHandy)
                 HaveBillRadio.Click();
@@ -49,7 +55,7 @@ namespace EnergyPage
             }
         }
 
-        public static void SelectItemToCompare(string itemToCompare)
+        public  void SelectItemToCompare(string itemToCompare)
         {
             switch (itemToCompare.ToLower())
             {
@@ -65,19 +71,19 @@ namespace EnergyPage
             }
         }
 
-        public static void SelectElectricityProvider(string provider)
+        public  void SelectElectricityProvider(string provider)
         {
             
         }
 
-        public static void SelectGasProvider(string provider)
+        public  void SelectGasProvider(string provider)
         {
 
         }
 
-        public static void ClickNextButton()
+        public  void ClickNextButton()
         {
-            nextBtn.Click();
+            NextBtn.Click();
         }
     }
 }
