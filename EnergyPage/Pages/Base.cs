@@ -19,5 +19,9 @@ namespace EnergyPage.Pages
             return Driver;
         }
 
+        public void WaitForElementToBeVisible(IWebElement element)
+        {
+            Wait.Until(ExpectedConditions.ElementIsVisible(By.Id(element.GetAttribute("id"))));
+        }
   }
 }
