@@ -1,5 +1,6 @@
 ﻿using EnergyJourneyTests.Utils;
 using EnergyPage;
+using EnergyPage.Pages;
 using EnergyPage.Utils;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
@@ -9,18 +10,6 @@ namespace EnergyJourneyTests.Steps
     [Binding]
     public class EnergyComparisonSteps:BaseTest
     {
-
-        [Given(@"I have navigated to energy comparison page")]
-        public void GivenIHaveNavigatedToEnergyComparisonPage()
-        {
-            Driver.Navigate();
-        }
-        
-        [Then(@"the page's title should be  (.*)")]
-        public void ThenThePageSTitleShouldBeEnergy_CompareGasAndElectricitySuppliersCompareTheMarket(string expectedTitle)
-        {
-            Assert.That(EnergyComparePage.GetPageTitle(), Is.EqualTo(expectedTitle));
-        }
 
         [Given(@"I have entered a post code (.*)")]
         public void GivenIHaveEnteredAPostCode(string postCode)
@@ -60,5 +49,60 @@ namespace EnergyJourneyTests.Steps
            Assert.That(YourEnergyPage.GetFormHeading(), Is.EqualTo("Your Energy"));
         }
 
- }
+
+        [Then(@"I have entered electricity usage (.*)")]
+        public void ThenIHaveEnteredElectricityUsage(int usage)
+        {
+            YourEnergyPage.EnterElectricityUsage(usage);
+        }
+
+        [When(@"I click next at energy form")]
+        public void WhenIClickNextAtEnergyForm()
+        {
+            YourEnergyPage.ClickNextButton();
+        }
+
+        [Then(@"Your Details Form is displayed")]
+        public void ThenYourDetailsFormIsDisplayed()
+        {
+            Assert.That(YourDetailsPage.GetFormHeading(), Is.EqualTo("Your Preferences"));
+        }
+
+        [Then(@"I select tariff type")]
+        public void ThenISelectTariffType()
+        {
+            YourDetailsPage.SelectTariffType();
+        }
+
+        [Then(@"I select payment type")]
+        public void ThenISelectPaymentType()
+        {
+            YourDetailsPage.SelectPaymentType();
+        }
+
+        [Then(@"I enter my email (.*)")]
+        public void ThenIEnterMyEmail(string email)
+        {
+            YourDetailsPage.EnterEmailAddress(email);
+        }
+
+        [Then(@"I accept the terms & conditions")]
+        public void ThenIAcceptTheTermsConditions()
+        {
+            YourDetailsPage.AcceptTerms();
+        }
+
+        [When(@"I click go to prices at Your details")]
+        public void WhenIClickGoToPricesAtYourDetails()
+        {
+            YourDetailsPage.ClickGoToPrices();
+        }
+
+        [Then(@"Your results page is displayed")]
+        public void ThenYourResultsPageIsDisplayed()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+    }
 }

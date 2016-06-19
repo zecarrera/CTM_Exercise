@@ -65,19 +65,46 @@ namespace EnergyJourneyTests.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Energy Comparison is properly loaded")]
-        [NUnit.Framework.CategoryAttribute("smoke")]
-        public virtual void EnergyComparisonIsProperlyLoaded()
+        [NUnit.Framework.DescriptionAttribute("User can get electricity comparison results")]
+        [NUnit.Framework.CategoryAttribute("acceptance")]
+        [NUnit.Framework.TestCaseAttribute("PE2 6YS", "Electricity Only", "300", "t@t.com", new string[0])]
+        public virtual void UserCanGetElectricityComparisonResults(string postCode, string compareItem, string electricityUsage, string email, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Energy Comparison is properly loaded", new string[] {
-                        "smoke"});
+            string[] @__tags = new string[] {
+                    "acceptance"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User can get electricity comparison results", @__tags);
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
- testRunner.Given("I have navigated to energy comparison page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given(string.Format("I have entered a post code {0}", postCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 9
- testRunner.Then("the page\'s title should be  Energy - Compare Gas and Electricity Suppliers | Comp" +
-                    "are The Market", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And(string.Format("I have selected what to compare {0}", compareItem), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 10
+ testRunner.When("I click next", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 11
+ testRunner.Then("Your Energy Form is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 12
+ testRunner.And(string.Format("I have entered electricity usage {0}", electricityUsage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 13
+ testRunner.When("I click next at energy form", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 14
+ testRunner.Then("Your Details Form is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 15
+ testRunner.And("I select tariff type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 16
+ testRunner.And("I select payment type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 17
+ testRunner.And(string.Format("I enter my email {0}", email), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 18
+ testRunner.And("I accept the terms & conditions", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 19
+ testRunner.When("I click go to prices at Your details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 20
+ testRunner.Then("Your results page is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -85,9 +112,9 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("User can provide supplier information")]
         [NUnit.Framework.CategoryAttribute("acceptance")]
-        [NUnit.Framework.TestCaseAttribute("PE2 6YS", "False", "Gas Only", new string[0])]
-        [NUnit.Framework.TestCaseAttribute("PE2 6YS", "True", "Gas Only", new string[0])]
-        [NUnit.Framework.TestCaseAttribute("PE2 6YS", "False", "Electricity Only", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("PE26YS", "False", "Gas Only", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("PE26YS", "True", "Gas Only", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("PE26YS", "False", "Electricity Only", new string[0])]
         [NUnit.Framework.TestCaseAttribute("PE2 6YS", "True", "Electricity Only", new string[0])]
         [NUnit.Framework.TestCaseAttribute("PE2 6YS", "False", "both", new string[0])]
         [NUnit.Framework.TestCaseAttribute("PE2 6YS", "True", "both", new string[0])]
@@ -100,17 +127,17 @@ this.ScenarioSetup(scenarioInfo);
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User can provide supplier information", @__tags);
-#line 12
+#line 26
 this.ScenarioSetup(scenarioInfo);
-#line 13
+#line 27
  testRunner.Given(string.Format("I have entered a post code {0}", postCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 14
+#line 28
  testRunner.And(string.Format("I have entered the bill handy {0}", billHandy), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 15
+#line 29
  testRunner.And(string.Format("I have selected what to compare {0}", compareItem), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 16
+#line 30
  testRunner.When("I click next", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 17
+#line 31
  testRunner.Then("Your Energy Form is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -131,11 +158,11 @@ this.ScenarioSetup(scenarioInfo);
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User can\'t proceed if invalid post code is provided", @__tags);
-#line 28
+#line 42
 this.ScenarioSetup(scenarioInfo);
-#line 29
+#line 43
  testRunner.Given(string.Format("I have entered a post code {0}", postCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 30
+#line 44
  testRunner.Then("Post code error is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

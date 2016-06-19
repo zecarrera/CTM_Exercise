@@ -3,10 +3,24 @@
 	As a customer
 	I want to compare energy providers
 
-@smoke
-Scenario: Energy Comparison is properly loaded
-	Given I have navigated to energy comparison page
-	Then the page's title should be  Energy - Compare Gas and Electricity Suppliers | Compare The Market
+@acceptance
+Scenario Outline: User can get electricity comparison results
+	Given I have entered a post code <postCode>
+	And I have selected what to compare <compareItem>
+	When I click next
+	Then Your Energy Form is displayed 
+	And I have entered electricity usage <electricityUsage>
+	When I click next at energy form
+	Then Your Details Form is displayed
+	And I select tariff type
+	And I select payment type
+	And I enter my email <email>
+	And I accept the terms & conditions
+	When I click go to prices at Your details
+	Then Your results page is displayed
+	Examples: 
+			| postCode | compareItem      | electricityUsage | email   |
+			| PE2 6YS  | Electricity Only | 300              | t@t.com |
 
 @acceptance
 Scenario Outline: User can provide supplier information
@@ -17,9 +31,9 @@ Scenario Outline: User can provide supplier information
 	Then Your Energy Form is displayed 
 	Examples: 
 			| postCode | billHandy | compareItem      |
-			| PE2 6YS  | False     | Gas Only         |
-			| PE2 6YS  | True      | Gas Only         |
-			| PE2 6YS  | False     | Electricity Only |
+			| PE26YS  | False     | Gas Only         |
+			| PE26YS  | True      | Gas Only         |
+			| PE26YS  | False     | Electricity Only |
 			| PE2 6YS  | True      | Electricity Only |
 			| PE2 6YS  | False     | both             |
 			| PE2 6YS  | True      | both             |
