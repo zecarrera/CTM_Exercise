@@ -8,6 +8,7 @@ namespace EnergyJourneyTests.Utils
     {
         public YourSupplierPage YourSupplierPage;
         public YourEnergyPage YourEnergyPage;
+        public YourDetailsPage YourDetailsPage;
 
         [BeforeScenario]
         public void Setup()
@@ -16,6 +17,7 @@ namespace EnergyJourneyTests.Utils
             Instance.Navigate().GoToUrl(BaseAddress);
             YourSupplierPage = new YourSupplierPage(Instance);
             YourEnergyPage = new YourEnergyPage(Instance);
+            YourDetailsPage = new YourDetailsPage(Instance);
         }
 
         [AfterScenario]
