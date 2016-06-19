@@ -75,16 +75,6 @@ namespace EnergyPage.Pages
             }
         }
 
-        public  void SelectElectricityProvider(string provider)
-        {
-            
-        }
-
-        public  void SelectGasProvider(string provider)
-        {
-            
-        }
-
         public  void ClickNextButton()
         {
             WaitForElementToBeVisibleById(NextBtn);

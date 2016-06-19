@@ -43,28 +43,16 @@ namespace EnergyJourneyTests.Steps
             YourSupplierPage.SelectItemToCompare(itemToCompare);
         }
 
-        [Given(@"I have selected my gas supplier (.*)")]
-        public void GivenIHaveSelectedMyGasSupplier(string provider)
-        {
-            YourSupplierPage.SelectGasProvider(provider);
-        }
-
-        [Given(@"I have selected my electricity supplier (.*)")]
-        public void GivenIHaveSelectedMyElectricitySupplier(string provider)
-        {
-            YourSupplierPage.SelectElectricityProvider(provider);
-        }
-
         [When(@"I click next")]
         public void WhenIClickNext()
         {
-            ScenarioContext.Current.Pending();
+            YourSupplierPage.ClickNextButton();
         }
 
         [Then(@"Your Energy Form is displayed")]
-        public void ThenYourEnergyFormIsDisplayed(Table table)
+        public void ThenYourEnergyFormIsDisplayed()
         {
-            ScenarioContext.Current.Pending();
+           Assert.That(YourEnergyPage.GetFormHeading(), Is.EqualTo("Your Energy"));
         }
 
 

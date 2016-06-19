@@ -85,9 +85,13 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("User can provide supplier information")]
         [NUnit.Framework.CategoryAttribute("acceptance")]
-        [NUnit.Framework.TestCaseAttribute("PE2 6YS", "False", "Gas Only", "British Gas", "null", new string[0])]
-        [NUnit.Framework.TestCaseAttribute("PE2 6YS", "True", "Gas Only", "British Gas", "null", new string[0])]
-        public virtual void UserCanProvideSupplierInformation(string postCode, string billHandy, string compareItem, string gasSupplier, string energySupplier, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("PE2 6YS", "False", "Gas Only", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("PE2 6YS", "True", "Gas Only", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("PE2 6YS", "False", "Electricity Only", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("PE2 6YS", "True", "Electricity Only", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("PE2 6YS", "False", "both", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("PE2 6YS", "True", "both", new string[0])]
+        public virtual void UserCanProvideSupplierInformation(string postCode, string billHandy, string compareItem, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "acceptance"};
@@ -99,18 +103,14 @@ this.ScenarioSetup(scenarioInfo);
 #line 12
 this.ScenarioSetup(scenarioInfo);
 #line 13
- testRunner.And(string.Format("I have entered a post code {0}", postCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given(string.Format("I have entered a post code {0}", postCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 14
  testRunner.And(string.Format("I have entered the bill handy {0}", billHandy), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 15
  testRunner.And(string.Format("I have selected what to compare {0}", compareItem), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 16
- testRunner.And(string.Format("I have selected my gas supplier {0}", gasSupplier), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 17
- testRunner.And(string.Format("I have selected my electricity supplier {0}", energySupplier), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 18
  testRunner.When("I click next", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 19
+#line 17
  testRunner.Then("Your Energy Form is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

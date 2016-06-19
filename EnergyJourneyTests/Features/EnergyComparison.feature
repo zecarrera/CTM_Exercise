@@ -10,14 +10,17 @@ Scenario: Energy Comparison is properly loaded
 
 @acceptance
 Scenario Outline: User can provide supplier information
-	And I have entered a post code <postCode>
+	Given I have entered a post code <postCode>
 	And I have entered the bill handy <billHandy>
 	And I have selected what to compare <compareItem>
-	And I have selected my gas supplier <gasSupplier>
-	And I have selected my electricity supplier <energySupplier>
 	When I click next
 	Then Your Energy Form is displayed 
 	Examples: 
-			| postCode | billHandy | compareItem | gasSupplier | energySupplier |
-			| PE2 6YS  | False     | Gas Only    | British Gas |           null |
-			| PE2 6YS  | True     | Gas Only    | British Gas |           null |
+			| postCode | billHandy | compareItem |
+			| PE2 6YS  | False     | Gas Only    |
+			| PE2 6YS  | True     | Gas Only    | 
+			| PE2 6YS  | False     | Electricity Only    | 
+			| PE2 6YS  | True     | Electricity Only    | 
+				| PE2 6YS  | False     | both    | 
+			| PE2 6YS  | True     | both    | 
+
