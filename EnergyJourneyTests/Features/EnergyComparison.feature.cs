@@ -86,6 +86,7 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("User can provide supplier information")]
         [NUnit.Framework.CategoryAttribute("acceptance")]
         [NUnit.Framework.TestCaseAttribute("PE2 6YS", "False", "Gas Only", "British Gas", "null", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("PE2 6YS", "True", "Gas Only", "British Gas", "null", new string[0])]
         public virtual void UserCanProvideSupplierInformation(string postCode, string billHandy, string compareItem, string gasSupplier, string energySupplier, string[] exampleTags)
         {
             string[] @__tags = new string[] {

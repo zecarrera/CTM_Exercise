@@ -20,3 +20,4 @@ Scenario Outline: User can provide supplier information
 	Examples: 
 			| postCode | billHandy | compareItem | gasSupplier | energySupplier |
 			| PE2 6YS  | False     | Gas Only    | British Gas |           null |
+			| PE2 6YS  | True     | Gas Only    | British Gas |           null |
