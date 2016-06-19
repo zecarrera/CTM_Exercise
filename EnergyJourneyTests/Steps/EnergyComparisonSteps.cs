@@ -1,7 +1,5 @@
-﻿using System;
-using EnergyJourneyTests.Utils;
+﻿using EnergyJourneyTests.Utils;
 using EnergyPage;
-using EnergyPage.Pages;
 using EnergyPage.Utils;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
@@ -55,6 +53,5 @@ namespace EnergyJourneyTests.Steps
            Assert.That(YourEnergyPage.GetFormHeading(), Is.EqualTo("Your Energy"));
         }
 
-
-    }
+ }
 }

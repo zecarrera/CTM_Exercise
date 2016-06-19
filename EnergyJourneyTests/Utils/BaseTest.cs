@@ -1,5 +1,4 @@
-﻿using EnergyPage;
-using EnergyPage.Pages;
+﻿using EnergyPage.Pages;
 using EnergyPage.Utils;
 using TechTalk.SpecFlow;
 

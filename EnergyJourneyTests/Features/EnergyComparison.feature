@@ -16,11 +16,11 @@ Scenario Outline: User can provide supplier information
 	When I click next
 	Then Your Energy Form is displayed 
 	Examples: 
-			| postCode | billHandy | compareItem |
-			| PE2 6YS  | False     | Gas Only    |
-			| PE2 6YS  | True     | Gas Only    | 
-			| PE2 6YS  | False     | Electricity Only    | 
-			| PE2 6YS  | True     | Electricity Only    | 
-				| PE2 6YS  | False     | both    | 
-			| PE2 6YS  | True     | both    | 
+			| postCode | billHandy | compareItem      |
+			| PE2 6YS  | False     | Gas Only         |
+			| PE2 6YS  | True      | Gas Only         |
+			| PE2 6YS  | False     | Electricity Only |
+			| PE2 6YS  | True      | Electricity Only |
+			| PE2 6YS  | False     | both             |
+			| PE2 6YS  | True      | both             |
 

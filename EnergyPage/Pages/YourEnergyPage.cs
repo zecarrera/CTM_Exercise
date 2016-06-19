@@ -16,11 +16,12 @@ namespace EnergyPage.Pages
         [FindsBy(How = How.Id, Using = "goto-your-energy")]
         public IWebElement NextBtn { get; set; }
 
-
-        public string GetFormHeading()
+    public string GetFormHeading()
         {
             WaitForElementToBeVisibleById(NextBtn);
             return MainHeadingLabel.Text;
         }
+
+ 
     }
 }
