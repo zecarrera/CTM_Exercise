@@ -1,13 +1,14 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
+using OpenQA.Selenium.Support.UI;
 
 namespace EnergyPage.Pages
 {
     public class YourSupplierPage:Base
     {
-        public YourSupplierPage()
+        public YourSupplierPage(IWebDriver driver)
         {
-            GetDriver();
+            GetDriver(driver);
         }
 
         [FindsBy(How = How.Id, Using = "your-postcode")]
@@ -34,6 +35,9 @@ namespace EnergyPage.Pages
         [FindsBy(How = How.Id, Using = "goto-your-supplier-details")]
         public IWebElement NextBtn { get; set; }
 
+
+   
+
         public void EnterPostCode(string postCode)
         {
             PostCodeTxt.SendKeys(postCode);
@@ -46,7 +50,7 @@ namespace EnergyPage.Pages
 
         public  void SelectBillHandy(bool isBillHandy)
         {
-           // Wait.Until(ExpectedConditions.ElementIsVisible(By.Id("have-bill-label")));
+            WaitForElementToBeVisibleById(HaveBillRadio);
             if (isBillHandy)
                 HaveBillRadio.Click();
             else
@@ -78,14 +82,16 @@ namespace EnergyPage.Pages
 
         public  void SelectGasProvider(string provider)
         {
-
+            
         }
 
         public  void ClickNextButton()
         {
+            WaitForElementToBeVisibleById(NextBtn);
             NextBtn.Click();
         }
 
+   
         
     }
 }
