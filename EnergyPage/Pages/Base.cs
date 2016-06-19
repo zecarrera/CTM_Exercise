@@ -14,7 +14,7 @@ namespace EnergyPage.Pages
         {
             Driver = driver;
             PageFactory.InitElements(Driver, this);
-            Wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(5));
+            Wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(15));
             return Driver;
         }
 

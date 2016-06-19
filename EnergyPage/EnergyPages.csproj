@@ -54,6 +54,7 @@
     <Compile Include="Pages\Base.cs" />
     <Compile Include="Pages\YourDetailsPage.cs" />
     <Compile Include="Pages\YourEnergyPage.cs" />
+    <Compile Include="Pages\YourResultsPage.cs" />
     <Compile Include="Pages\YourSupplierPage.cs" />
     <Compile Include="Utils\ConstantUtils.cs" />
     <Compile Include="Utils\Driver.cs" />

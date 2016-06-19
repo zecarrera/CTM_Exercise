@@ -1,7 +1,4 @@
 ﻿using EnergyJourneyTests.Utils;
-using EnergyPage;
-using EnergyPage.Pages;
-using EnergyPage.Utils;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 
@@ -101,7 +98,7 @@ namespace EnergyJourneyTests.Steps
         [Then(@"Your results page is displayed")]
         public void ThenYourResultsPageIsDisplayed()
         {
-            ScenarioContext.Current.Pending();
+            Assert.That(YourResultsPage.IsResultsPageLoaded(), Is.True);
         }
 
     }
