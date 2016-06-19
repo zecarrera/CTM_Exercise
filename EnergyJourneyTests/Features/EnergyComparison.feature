@@ -24,3 +24,12 @@ Scenario Outline: User can provide supplier information
 			| PE2 6YS  | False     | both             |
 			| PE2 6YS  | True      | both             |
 
+@acceptance
+Scenario Outline: User can't proceed if invalid post code is provided
+	Given I have entered a post code <postCode>
+	Then Post code error is displayed
+	Examples: 
+			| postCode |
+			| PE2      |
+			|PE26YSP   |
+			|          |

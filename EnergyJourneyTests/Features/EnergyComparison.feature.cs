@@ -115,6 +115,31 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("User can\'t proceed if invalid post code is provided")]
+        [NUnit.Framework.CategoryAttribute("acceptance")]
+        [NUnit.Framework.TestCaseAttribute("PE2", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("PE26YSP", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("", new string[0])]
+        public virtual void UserCanTProceedIfInvalidPostCodeIsProvided(string postCode, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "acceptance"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User can\'t proceed if invalid post code is provided", @__tags);
+#line 28
+this.ScenarioSetup(scenarioInfo);
+#line 29
+ testRunner.Given(string.Format("I have entered a post code {0}", postCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 30
+ testRunner.Then("Post code error is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

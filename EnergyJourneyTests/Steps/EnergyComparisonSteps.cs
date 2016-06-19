@@ -41,6 +41,13 @@ namespace EnergyJourneyTests.Steps
             YourSupplierPage.SelectItemToCompare(itemToCompare);
         }
 
+        [Then(@"Post code error is displayed")]
+        public void ThenPostCodeErrorIsDisplayed()
+        {
+            Assert.That(YourSupplierPage.IsPostCodeErrorDisplayed(), Is.True);
+        }
+
+
         [When(@"I click next")]
         public void WhenIClickNext()
         {

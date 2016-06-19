@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
+using OpenQA.Selenium.Support.UI;
 
 namespace EnergyPage.Pages
 {
@@ -34,8 +35,10 @@ namespace EnergyPage.Pages
         [FindsBy(How = How.Id, Using = "goto-your-supplier-details")]
         public IWebElement NextBtn { get; set; }
 
+        [FindsBy(How = How.CssSelector, Using = "div.error.ng-binding")]
+        public IWebElement PostCodeError { get; set; }
+        
 
-   
 
         public void EnterPostCode(string postCode)
         {
@@ -80,7 +83,11 @@ namespace EnergyPage.Pages
             NextBtn.Click();
         }
 
-   
-        
+
+        public bool IsPostCodeErrorDisplayed()
+        {
+            Wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("div.error.ng-binding")));
+            return PostCodeError.Displayed;
+        }
     }
 }
