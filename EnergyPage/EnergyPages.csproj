@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pages\Base.cs" />
+    <Compile Include="Pages\YourEnergyPage.cs" />
     <Compile Include="Pages\YourSupplierPage.cs" />
     <Compile Include="Utils\ConstantUtils.cs" />
     <Compile Include="Utils\Driver.cs" />

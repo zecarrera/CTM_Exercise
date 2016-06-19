@@ -26,7 +26,8 @@ namespace EnergyPage.Utils
 
         public static void Close()
         {
-            Instance.Close();
+            //Instance.Close();
+            Instance.Quit();
         }
 
         public static void Navigate()
