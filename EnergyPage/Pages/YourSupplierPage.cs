@@ -1,5 +1,4 @@
-﻿using EnergyPage.Utils;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
 namespace EnergyPage.Pages
@@ -17,10 +16,10 @@ namespace EnergyPage.Pages
         [FindsBy(How = How.Id, Using = "find-postcode")]
         public IWebElement PostCodeFindBtn { get; set; }
 
-        [FindsBy(How = How.Id, Using = "have-bill")]
+        [FindsBy(How = How.Id, Using = "have-bill-label")]
         public IWebElement HaveBillRadio { get; set; }
 
-        [FindsBy(How = How.Id, Using = "no-bill")]
+        [FindsBy(How = How.Id, Using = "no-bill-label")]
         public IWebElement DoesntHaveBillRadio { get; set; }
 
         [FindsBy(How = How.Id, Using= "compare-gas-label")]
@@ -47,6 +46,7 @@ namespace EnergyPage.Pages
 
         public  void SelectBillHandy(bool isBillHandy)
         {
+           // Wait.Until(ExpectedConditions.ElementIsVisible(By.Id("have-bill-label")));
             if (isBillHandy)
                 HaveBillRadio.Click();
             else
@@ -85,5 +85,7 @@ namespace EnergyPage.Pages
         {
             NextBtn.Click();
         }
+
+        
     }
 }
