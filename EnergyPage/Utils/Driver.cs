@@ -1,14 +1,12 @@
 ﻿using System;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Support.PageObjects;
 
 namespace EnergyPage.Utils
 {
     public class Driver
     {
         public static IWebDriver Instance { get; set; }
-        //public static Wait
 
         public static string BaseAddress
         {
