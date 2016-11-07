@@ -1,13 +1,16 @@
-﻿using OpenQA.Selenium;
+﻿using EnergyJourneyTests.Utils;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
 namespace EnergyPage.Pages
 {
     public class YourEnergyPage:Base
     {
-        public YourEnergyPage(IWebDriver driver)
+        private readonly BrowserContext browserContext;
+
+        public YourEnergyPage(BrowserContext bc)
         {
-            Driver = GetDriver(driver);
+            browserContext = bc;
         }
 
         [FindsBy(How = How.ClassName, Using = "main-heading")]

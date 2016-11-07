@@ -1,104 +1,116 @@
 ﻿using EnergyJourneyTests.Utils;
+using EnergyPage.Pages;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 
 namespace EnergyJourneyTests.Steps
 {
     [Binding]
-    public class EnergyComparisonSteps:BaseTest
+    public class EnergyComparisonSteps //TODO Break subpages into different step files
     {
+        private readonly YourSupplierPage yourSupplierPage;
+        private readonly YourEnergyPage yourEnergyPage;
+        private readonly YourDetailsPage yourDetailsPage;
+        private readonly YourResultsPage yourResultsPage;
+        public EnergyComparisonSteps(YourSupplierPage yourSupplierPage, YourEnergyPage yourEnergyPage, YourDetailsPage yourDetailsPage, YourResultsPage yourResultsPage)
+        {
+            this.yourSupplierPage = yourSupplierPage;
+            this.yourEnergyPage = yourEnergyPage;
+            this.yourDetailsPage = yourDetailsPage;
+            this.yourResultsPage = yourResultsPage;
+        }
 
         [Given(@"I have entered a post code (.*)")]
         public void GivenIHaveEnteredAPostCode(string postCode)
         {
-            YourSupplierPage.EnterPostCode(postCode);
-            YourSupplierPage.ClickFindPostCode();
+            yourSupplierPage.EnterPostCode(postCode);
+            yourSupplierPage.ClickFindPostCode();
         }
 
         [Given(@"I have entered the bill handy (.*)")]
         public void GivenIHaveEnteredTheBillHandy(bool isBillHandy)
         {
-            YourSupplierPage.SelectBillHandy(isBillHandy);
+            yourSupplierPage.SelectBillHandy(isBillHandy);
         }
 
         [Given(@"I have selected what to compare (.*)")]
         public void GivenIHaveSelectedWhatToCompare(string itemToCompare)
         {
-            YourSupplierPage.SelectItemToCompare(itemToCompare);
+            yourSupplierPage.SelectItemToCompare(itemToCompare);
         }
 
         [Then(@"Post code error is displayed")]
         public void ThenPostCodeErrorIsDisplayed()
         {
-            Assert.That(YourSupplierPage.IsPostCodeErrorDisplayed(), Is.True);
+            Assert.That(yourSupplierPage.IsPostCodeErrorDisplayed(), Is.True);
         }
 
 
         [When(@"I click next")]
         public void WhenIClickNext()
         {
-            YourSupplierPage.ClickNextButton();
+            yourSupplierPage.ClickNextButton();
         }
 
         [Then(@"Your Energy Form is displayed")]
         public void ThenYourEnergyFormIsDisplayed()
         {
-           Assert.That(YourEnergyPage.GetFormHeading(), Is.EqualTo("Your Energy"));
+           Assert.That(yourEnergyPage.GetFormHeading(), Is.EqualTo("Your Energy"));
         }
 
 
         [Then(@"I have entered electricity usage (.*)")]
         public void ThenIHaveEnteredElectricityUsage(int usage)
         {
-            YourEnergyPage.EnterElectricityUsage(usage);
+            yourEnergyPage.EnterElectricityUsage(usage);
         }
 
         [When(@"I click next at energy form")]
         public void WhenIClickNextAtEnergyForm()
         {
-            YourEnergyPage.ClickNextButton();
+            yourEnergyPage.ClickNextButton();
         }
 
         [Then(@"Your Details Form is displayed")]
         public void ThenYourDetailsFormIsDisplayed()
         {
-            Assert.That(YourDetailsPage.GetFormHeading(), Is.EqualTo("Your Preferences"));
+            Assert.That(yourEnergyPage.GetFormHeading(), Is.EqualTo("Your Preferences"));
         }
 
         [Then(@"I select tariff type")]
         public void ThenISelectTariffType()
         {
-            YourDetailsPage.SelectTariffType();
+            yourDetailsPage.SelectTariffType();
         }
 
         [Then(@"I select payment type")]
         public void ThenISelectPaymentType()
         {
-            YourDetailsPage.SelectPaymentType();
+            yourDetailsPage.SelectPaymentType();
         }
 
         [Then(@"I enter my email (.*)")]
         public void ThenIEnterMyEmail(string email)
         {
-            YourDetailsPage.EnterEmailAddress(email);
+            yourDetailsPage.EnterEmailAddress(email);
         }
 
         [Then(@"I accept the terms & conditions")]
         public void ThenIAcceptTheTermsConditions()
         {
-            YourDetailsPage.AcceptTerms();
+            yourDetailsPage.AcceptTerms();
         }
 
         [When(@"I click go to prices at Your details")]
         public void WhenIClickGoToPricesAtYourDetails()
         {
-            YourDetailsPage.ClickGoToPrices();
+            yourDetailsPage.ClickGoToPrices();
         }
 
         [Then(@"Your results page is displayed")]
         public void ThenYourResultsPageIsDisplayed()
         {
-            Assert.That(YourResultsPage.IsResultsPageLoaded(), Is.True);
+            Assert.That(yourResultsPage.IsResultsPageLoaded(), Is.True);
         }
 
     }

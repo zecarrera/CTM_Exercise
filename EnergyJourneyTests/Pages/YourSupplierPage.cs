@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using EnergyJourneyTests.Utils;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
 
@@ -6,9 +7,10 @@ namespace EnergyPage.Pages
 {
     public class YourSupplierPage:Base
     {
-        public YourSupplierPage(IWebDriver driver)
+        private readonly BrowserContext browserContext;
+        public YourSupplierPage(BrowserContext bc)
         {
-            GetDriver(driver);
+            browserContext = bc;
         }
 
         [FindsBy(How = How.Id, Using = "your-postcode")]

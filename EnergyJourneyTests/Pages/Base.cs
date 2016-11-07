@@ -7,16 +7,7 @@ namespace EnergyPage.Pages
 {
     public class Base
     {
-        public IWebDriver Driver;
         public WebDriverWait Wait;
-
-        public IWebDriver GetDriver(IWebDriver driver)
-        {
-            Driver = driver;
-            PageFactory.InitElements(Driver, this);
-            Wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(15));
-            return Driver;
-        }
 
         public void WaitForElementToBeVisibleById(IWebElement element)
         {

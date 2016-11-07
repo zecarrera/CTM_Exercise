@@ -1,13 +1,16 @@
-﻿using OpenQA.Selenium;
+﻿using EnergyJourneyTests.Utils;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
 namespace EnergyPage.Pages
 {
     public class YourResultsPage:Base
     {
-        public YourResultsPage(IWebDriver driver)
+        private readonly BrowserContext browserContext;
+
+        public YourResultsPage(BrowserContext bc)
         {
-            GetDriver(driver);
+            browserContext = bc;
         }
 
         [FindsBy(How = How.Id, Using = "price-panels-container")]
